@@ -10,23 +10,17 @@ import tempfile
 # import winsound
 import time
 
-chrome_options = Options()
-# 
+
 user_data_dir = os.path.join(tempfile.gettempdir(), "wa_bot_data")
 os.makedirs(user_data_dir, exist_ok=True)
     
-chrome_options.add_argument(f"--user-data-dir={user_data_dir}")
-chrome_options.add_argument("--profile-directory=Default")
-chrome_options.add_argument("--headless=new")  # Remove if you want visible browser
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-dev-shm-usage")
 
-os.system("/workspaces/WhatsAppBot/script.bat")
+# os.system("/workspaces/WhatsAppBot/script.bat")
 opt = Options()
 opt.add_experimental_option("debuggerAddress","localhost:8989")
-driver = webdriver.Chrome(options=chrome_options)
+driver = webdriver.Chrome(options=opt)
 driver.get("https://web.whatsapp.com/")
-wait = WebDriverWait(driver, 600)
+wait = WebDriverWait(driver, 3)
 #Enter the target number in the target variable. Example +923335141414
 target = "+923335141414"
 string = "Testing whatsapp automation python"
